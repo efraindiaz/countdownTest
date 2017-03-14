@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Año Nuevo</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Baloo+Thambi" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+	<meta property="og:url" content="http://www.efraindiaz.96.ly/2017" />
+	<meta property="og:type" content="article" />
+	<meta property="og:title" content="Efrain Diaz Countdown" />
+	<meta property="og:description" content="Cuenta regresiva para 2017" />
+	<meta property="og:image" content="http://s3.amazonaws.com/cision-wp-files/us/wp-content/uploads/2016/11/08122109/2017-pr-trends.png" />
+	<style>
+		body{			
+			background: #074D71;
+		}
+		.div-title{
+			padding-top: 50px;
+			padding-bottom: 50px;
+			text-align: center;
+		}
+		.title{
+			font-family: 'Baloo Thambi',cursive;
+			color:white;
+			font-size: 50px;
+		}
+		.time{
+			font-family: 'Baloo Thambi', cursive;
+			color: white;
+			font-size: 75px;
+		}
+		.type{
+			background: black;
+			text-align: center;
+			font-size: 30px;
+			color: white;
+			font-family: 'Baloo Thambi', cursive;
+			border-bottom: solid 1px;
+		}
+
+
+	</style>
+</head>
+<body>
+	<div class="col-md-12 div-title">
+		<span class="title">Cuenta regresiva para 2017</span>
+	</div>
+
+	<div class="col-md-3 type">
+		Días
+		<div class="col-md-12">
+			<span id="day" class="time"></span>
+		</div>
+	</div>
+	<div class="col-md-3 type">
+		Horas
+		<div class="col-md-12">
+			<span id="hour" class="time"></span>
+		</div>
+	</div>
+	<div class="col-md-3 type">
+		Minutos
+		<div class="col-md-12">
+			<span id="minute" class="time"></span>
+		</div>
+	</div>
+	<div class="col-md-3 type">
+		Segundos
+		<div class="col-md-12">
+			<span id="second" class="time"></span>
+		</div>
+	</div>
+
+	<span id="hora" class="day"></span>
+
+	<script>
+
+	/**************/
+
+	     $(function(){
+	     
+	     	setInterval(countdown,1000);
+
+	     });
+
+	     function countdown(){
+		     	//console.log('hola')
+			    var fecha = new Date('2017','0','1','00','00','00');
+			    var hoy = new Date();
+			    var dias = 0
+			    var horas = 0
+			    var minutos = 0
+			    var segundos = 0
+
+			   
+
+			    if (fecha>hoy){
+			    	
+			        var diferencia=(fecha.getTime()-hoy.getTime())/1000
+
+			        dias=Math.floor(diferencia/86400)
+
+			        diferencia=diferencia-(86400*dias)
+
+			        horas=Math.floor(diferencia/3600)
+
+			        diferencia=diferencia-(3600*horas)
+
+			        minutos=Math.floor(diferencia/60)
+
+			        diferencia=diferencia-(60*minutos)
+
+			        segundos=Math.floor(diferencia)
+
+			        //$('#hora').text(dias + ' Dias, ' + horas + ' Horas, ' + minutos + ' Minutos, ' + segundos + ' Segundos');
+			        $('#day').text(dias);
+			        $('#hour').text(horas);
+			        $('#minute').text(minutos);
+			        $('#second').text(segundos);
+			    }
+			    else{
+
+			        $('#hora').text('Quedan ' + dias + ' D&iacute;as, ' + horas + ' Horas, ' + minutos + ' Minutos, ' + segundos + ' Segundos')
+			    }
+			}
+
+	</script>	
+	
+</body>
+</html>
